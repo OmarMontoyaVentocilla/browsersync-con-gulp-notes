@@ -1,0 +1,29 @@
+---Pasos para instalar gulp:
+
+1)instalar node js junto con el paquete npm
+2) ejecutamos : npm install -g gulp
+3)vamos a nuestro proyecto y ejecutamos : npm init -y
+4)instalo gulp localmnte :  npm install --save-dev gulp
+
+-----ahora para instalar browsersync -----
+1)npm install -g browser-sync
+2) lo ponemos localmente en nuestro proyecto : npm install --save -dev browser-sync
+3)creamos un gulpfile.js
+
+4)en ese archivo pego eso:
+ const gulp=require('gulp'),
+      browserSync =require('browser-sync').create();
+
+ gulp.task('default',()=>{
+   browserSync.init({
+         server:'./'
+   	});
+
+gulp.watch('./*.html').on('change',browserSync.reload);
+gulp.watch('./*.css').on('change',browserSync.reload);
+gulp.watch('./*.js').on('change',browserSync.reload); 
+
+}); 
+
+5)ejecuto :  gulp   
+ 
